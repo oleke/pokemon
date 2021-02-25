@@ -1,0 +1,8 @@
+<form *ngIf="form" [formGroup]=form>
+<mat-form-field appearance="outline" class="search-field">
+  <input matInput type="text" formControlName="search" placeholder="Search Pokemon">
+  <button mat-button *ngIf="search" matSuffix mat-icon-button aria-label="Clear" (click)="search=''">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+</form>

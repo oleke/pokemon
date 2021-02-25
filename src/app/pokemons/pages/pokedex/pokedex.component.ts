@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-pokedex',
   templateUrl: './pokedex.component.html',
@@ -8,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 export class PokedexComponent implements OnInit {
 
   pokemonId?: number;
+  search?: string;
   constructor() { }
 
   ngOnInit(): void {
@@ -16,5 +16,11 @@ export class PokedexComponent implements OnInit {
   onSelectedPokemonEvent(pokemonId: number){
     this.pokemonId = pokemonId;
   }
+
+  onSearchPokemonEvent(search: string): void{
+    this.search = search;
+  }
+
+
 
 }

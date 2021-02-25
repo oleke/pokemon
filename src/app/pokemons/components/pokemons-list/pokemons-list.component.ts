@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Output, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, EventEmitter, Input, Output, OnInit, OnChanges } from '@angular/core';
 import { PagedData } from '../../paged-data.model';
 import { Pokemon } from '../../pokemon.model';
 import { PokemonService } from '../../pokemon.service';
@@ -9,26 +8,23 @@ import { PokemonService } from '../../pokemon.service';
   templateUrl: './pokemons-list.component.html',
   styleUrls: ['./pokemons-list.component.scss']
 })
-export class PokemonsListComponent implements OnInit {
+export class PokemonsListComponent implements OnChanges {
   @Output() selectedPokemonEvent = new EventEmitter<number>();
+  @Input()  search?: string;
 
-  form?: FormGroup;
   pokemons?: PagedData<Pokemon>;
-  search?: string;
 
   constructor(
-    private fb: FormBuilder,
     private pokemonService: PokemonService,
   ) { }
 
-  ngOnInit(): void {
-    this.form = this.fb.group({
-      search: ['', Validators.required]
-    });
-
-    // this.form.get('search')?.valueChanges.subscribe(value => this.onSearch(value));
-
-    this.pokemonService.getPokemons().subscribe(res => this.pokemons = res)
+  ngOnChanges(): void {
+    if(this.search){
+      this.pokemonService.getPokemons(0, this.search).subscribe(res => this.pokemons = res)
+    }
+    else{
+      this.pokemonService.getPokemons().subscribe(res => this.pokemons = res)
+    }
   }
 
   onScroll(): void {
@@ -44,18 +40,6 @@ export class PokemonsListComponent implements OnInit {
 
   onSelected(value: number): void {
     this.selectedPokemonEvent.emit(value)
-  }
-
-  onSearch(search: string): void {
-    console.log(search);
-    this.search = search;
-    this.pokemonService.getPokemons(0, search).subscribe(res => this.pokemons = res)
-  }
-
-  onSubmit() {
-    if (this.form?.valid) {
-      this.onSearch(this.form?.value.search);
-    }
   }
 
 }

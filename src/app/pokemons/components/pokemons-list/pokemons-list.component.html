@@ -1,17 +1,7 @@
-<form *ngIf="form" [formGroup]=form (ngSubmit)="onSubmit()">
-  <mat-form-field class="form-field">
-    <mat-label>Search...</mat-label>
-    <input matInput type="text" formControlName="search">
-    <button mat-button *ngIf="search" matSuffix mat-icon-button aria-label="Clear" (click)="search=''">
-      <mat-icon>close</mat-icon>
-    </button>
-    <mat-error *ngIf="form.get('search')?.hasError('required')">This field is required</mat-error>
-  </mat-form-field>
-
-  <button>Submit</button>
-</form>
-
 <mat-nav-list infiniteScroll [scrollWindow]="false" (scrolled)="onScroll()" class="infiniteList">
+  <div *ngIf="search && !pokemons?.data?.length" class="text-center">
+    No search result
+  </div>
   <mat-list-item *ngFor="let pokemon of pokemons?.data" (click)="onSelected(pokemon.id)">
     <img matListAvatar src="assets/img/sprites/{{pokemon.id}}.png" alt="{{pokemon.name}}" />
     {{pokemon.id}}. {{ pokemon.name }}
