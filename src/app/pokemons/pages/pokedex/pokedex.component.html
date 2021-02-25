@@ -1,6 +1,7 @@
+<app-header (searchPokemonEvent)="onSearchPokemonEvent($event)"></app-header>
 <mat-drawer-container class="container">
   <mat-drawer mode="side" opened class="listContainer">
-    <app-pokemons-list (selectedPokemonEvent)="onSelectedPokemonEvent($event)"></app-pokemons-list>
+    <app-pokemons-list [search]="search" (selectedPokemonEvent)="onSelectedPokemonEvent($event)"></app-pokemons-list>
   </mat-drawer>
   <mat-drawer-content>
     <app-pokemon-detail [pokemonId]="pokemonId"></app-pokemon-detail>
