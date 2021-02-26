@@ -1,0 +1,39 @@
+<mat-card class="login-card">
+  <mat-card-title class="login-card-title">Sign Up</mat-card-title>
+  <mat-card-content class="login-card-content">
+    <form class="login-form">
+      <div>
+        <mat-form-field appearance="outline" class="form-fields">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email" type="email" />
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field appearance="outline" class="form-fields">
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="Password" type="password" />
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field appearance="outline" class="form-fields">
+          <mat-label>Retype Password</mat-label>
+          <input matInput placeholder="Retype password" type="password" />
+        </mat-form-field>
+      </div>
+
+      <div>
+        <button mat-raised-button color="accent">Sign Up</button>
+        <button mat-button color="warn" routerLink="/pokemons/login">Already have an account? Sign in</button>
+      </div>
+    </form>
+  </mat-card-content>
+
+  <mat-card-footer class="login-card-footer">
+    <button mat-mini-fab color="primary" aria-label="Icon button with home icon" routerLink="/pokemons">
+      <mat-icon>home</mat-icon>
+    </button>
+  </mat-card-footer>
+
+</mat-card>

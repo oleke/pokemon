@@ -18,8 +18,6 @@ import * as fromPages from './pages/index';
 import * as fromComponents from './components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { SearchComponent } from './components/search/search.component';
-
 @NgModule({
   declarations: [
     ...fromPages.pages,

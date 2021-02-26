@@ -1,0 +1,39 @@
+.login-card {
+  position: absolute;
+  width: 50%;
+  height:50%;
+  top: 24%;
+  left: 24%;
+}
+
+.login-card-title{
+  padding-left: 5%;
+  padding-top: 5%;
+}
+
+.login-card-content{
+  display: flex;
+  justify-content: center;
+}
+
+.login-form{
+  width: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
+  height: 100%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.form-fields {
+  width: 99%
+}
+
+h1 {
+  text-align: center;
+  margin-top: 10%
+}
+
+.login-card-footer {
+  text-align: center;
+}

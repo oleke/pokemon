@@ -7,7 +7,7 @@ const routes: Routes = [
     loadChildren: () => import('./pokemons/pokemons.module') .then(m => m.PokemonsModule)
   },
   {
-    path: '', 
+    path: '',
     redirectTo: '/pokemons',
     pathMatch: 'full'
   }

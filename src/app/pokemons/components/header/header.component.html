@@ -6,10 +6,17 @@
   <span class="spacer"></span>
   <app-search (textChangeEvent)="onSearch($event)"></app-search>
   <span class="spacer"></span>
-  <button mat-raised-button aria-label="button">
-    My teams
-  </button>
-  <button *ngIf="loggedIn" mat-button aria-label="Example icon-button with share icon">
-    <mat-icon>logout</mat-icon>
-  </button>
+  <div *ngIf="loggedIn; else elseBlock">
+    <button mat-raised-button aria-label="button">
+      My team
+    </button>
+    <button mat-button aria-label="Example icon-button with share icon">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </div>
+  <ng-template #elseBlock>
+    <button mat-raised-button aria-label="button" routerLink='/pokemons/login'>
+      Login
+    </button>
+  </ng-template>
 </mat-toolbar>
